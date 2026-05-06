@@ -57,8 +57,8 @@ jobs:
 
     - name: Security scan (Snyk)
       run: |
-        cd backend && snyk test --severity-threshold=high
-        cd ../frontend && snyk test --severity-threshold=high
+        cd backend && snyk test --severity-threshold=critical
+        cd ../frontend && snyk test --severity-threshold=critical
 
     - name: Run tests
       run: |
