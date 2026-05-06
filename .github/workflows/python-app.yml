@@ -33,6 +33,7 @@ jobs:
         cd frontend && npm run lint
     - name: audit
       run: |
+          cd backend && npm audit
           cd ../frontend && npm audit
     - name: static code security analysis 
       run: |
