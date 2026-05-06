@@ -24,22 +24,21 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install  snyk
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Install Snyk CLI
-      run: |
-        npm install -g snyk
     - name: Lint 
       run: |
-        npm run lint
+        cd backend && npm run lint
+        cd ../frontend && npm run lint
     - name: audit
       run: |
-        npm audit
+          cd ../frontend && npm audit
     - name: static code security analysis 
       run: |
         snyk test --severity-threshold=high 
     - name:  tests
       run: |
-        npm test
+        cd backend && npm test
     - name: docker image
       run: |
         docker compose build
