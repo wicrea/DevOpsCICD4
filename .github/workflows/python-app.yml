@@ -40,6 +40,7 @@ jobs:
     - name: Install Snyk CLI
       run: |
         npm install -g snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
     - name: Lint 
       run: |
