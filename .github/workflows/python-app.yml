@@ -30,7 +30,7 @@ jobs:
         npm install -g snyk
     - name: Lint 
       run: |
-        cd ../frontend && npm run lint
+        cd frontend && npm run lint
     - name: audit
       run: |
           cd ../frontend && npm audit
