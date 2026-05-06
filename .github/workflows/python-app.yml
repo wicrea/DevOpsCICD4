@@ -44,15 +44,10 @@ jobs:
     - name: Lint 
       run: |
         cd frontend && npm run lint
-
     - name: static code security analysis 
       run: |
-        snyk test --severity-threshold=high 
-
-    - name: tests
-      run: |
-        cd backend && npm test
-
+        cd backend && snyk test --severity-threshold=high 
+        cd ../frontend && snyk test --severity-threshold=high 
     - name: docker image
       run: |
         docker compose build
