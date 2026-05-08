@@ -81,10 +81,10 @@ jobs:
 
     - name: Push backend image
       run: |
-        docker tag backend tonuser/backend
-        docker push tonuser/backend
+        docker tag backend tonuser/devopscicd4-backend
+        docker push tonuser/devopscicd4-backend
 
     - name: Push frontend image
       run: |
-        docker tag frontend tonuser/frontend
-        docker push tonuser/frontend
+        docker tag frontend tonuser/devopscicd4-frontend
+        docker push tonuser/devopscicd4-frontend
