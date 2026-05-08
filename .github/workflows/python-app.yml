@@ -82,9 +82,9 @@ jobs:
     - name: Push backend image
       run: |
         docker tag backend tonuser/backend:latest
-        docker push tonuser/backend:latest
+        docker push tonuser/backend
 
     - name: Push frontend image
       run: |
         docker tag frontend tonuser/frontend:latest
-        docker push tonuser/frontend:latest
+        docker push tonuser/frontend
