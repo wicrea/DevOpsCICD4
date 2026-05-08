@@ -61,33 +61,4 @@ jobs:
 
     - name: Build Docker images
       run: docker compose build
-  
-  production-build:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Create .env
-      run: |
-         cd backend && echo "APP_SECRET_NAME=${{ secrets.APP_SECRET_NAME }}" >> .env
-
-    - name:  Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Build Docker images
-      run: docker compose build
-
-    - name: Push backend image
-      run: |
-        docker tag backend tonuser/backend:latest
-        docker push tonuser/backend:latest
-
-    - name: Push frontend image
-      run: |
-        docker tag frontend tonuser/frontend:latest
-        docker push tonuser/frontend:latest
