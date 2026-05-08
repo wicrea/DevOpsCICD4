@@ -81,8 +81,10 @@ jobs:
 
     - name: Push backend image
       run: |
+       docker tag devopscicd4-backend ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-backend
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-backend
 
     - name: Push frontend image
       run: |
+       docker tag devopscicd4-frontend ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-frontend
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-frontend
