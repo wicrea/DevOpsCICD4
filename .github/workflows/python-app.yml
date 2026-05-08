@@ -81,8 +81,8 @@ jobs:
 
     - name: Push backend image
       run: |
-        docker push tonuser/devopscicd4-backend
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-backend
 
     - name: Push frontend image
       run: |
-        docker push tonuser/devopscicd4-frontend
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/devopscicd4-frontend
